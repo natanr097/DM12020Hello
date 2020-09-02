@@ -2,6 +2,7 @@ package com.example.dm12020hello
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_tela2.*
 
 class Tela2 : AppCompatActivity() {
@@ -14,5 +15,13 @@ class Tela2 : AppCompatActivity() {
 
         txtBoasVindas.text = "Olá "+ nome + ", seja bem vindo!"
 
+
+        btnVoltar.setOnClickListener {
+            finish()
+        }
+    }
+
+    override fun onBackPressed() {
+        Toast.makeText(this, "Utilize o botão da tela para voltar", Toast.LENGTH_LONG).show()
     }
 }

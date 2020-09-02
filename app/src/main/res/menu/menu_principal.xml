@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Clique Aqui" android:id="@+id/menClique"/>
+    <item android:title="Não Clique" android:id="@+id/menNaoClique"/>
+
+</menu>
