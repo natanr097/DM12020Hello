@@ -11,10 +11,17 @@ class Tela2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tela2)
 
-        val nome = intent.getStringExtra("nome_digitado")
+        // Casting
+        val p = intent.getSerializableExtra("pessoa") as Pessoa
+
+
+        //val nome = intent.getStringExtra("nome_digitado")
 
         txtBoasVindas.text = "Olá "+ nome + ", seja bem vindo!"
 
+        //val curso = intent.getStringExtra("curso_escolhido")
+
+        txtCurso.text = curso
 
         btnVoltar.setOnClickListener {
             finish()

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -14,24 +15,43 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        var lista = ArrayList<String>()
+
+        lista.add("Escolha seu curso...")
+        lista.add("GTI")
+        lista.add("ADS")
+
+        val adp = ArrayAdapter(this, android.R.layout.simple_spinner_item, lista)
+
+        spnCurso.adapter = adp
+
         btnOk.setOnClickListener {
 
             val nome = edtNome.text.toString()
+            val curso = spnCurso.selectedItem.toString()
 
-            val i = Intent(this, Tela2::class.java)
+            if(nome.isEmpty() || curso.equals("Escolha seu curso...")) {
+                Toast.makeText(this, "Por favor, preencha todos os campos...", Toast.LENGTH_SHORT).show()
+            } else {
+                val i = Intent(this, Tela2::class.java)
 
-            i.putExtra("nome_digitado", nome)
+                val p = Pessoa(nome, curso)
 
-            startActivity(i)
+                i.putExtra("pessoa", p)
 
+                //i.putExtra("nome_digitado", nome)
+                //i.putExtra("curso_escolhido", curso)
+
+                startActivity(i)
+            }
         }
-
     }
 
     override fun onResume() {
         super.onResume()
 
         edtNome.text.clear()
+        spnCurso.setSelection(0)
 
     }
 
