@@ -39,9 +39,6 @@ class MainActivity : AppCompatActivity() {
 
                 i.putExtra("pessoa", p)
 
-                //i.putExtra("nome_digitado", nome)
-                //i.putExtra("curso_escolhido", curso)
-
                 startActivity(i)
             }
         }
